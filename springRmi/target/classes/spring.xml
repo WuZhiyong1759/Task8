@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  - Application context definition for "springapp" DispatcherServlet.  -->
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <bean id="baseRmiService" class="com.jnshu.service.BaseServiceImpl"/>
+    <bean id="baseServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="service" ref="baseRmiService"></property>
+        <!-- 配置服务名称-->
+        <property name="serviceName" value="baseService"></property>
+        <!-- 配置服务接口-->
+        <property name="serviceInterface" value="com.jnshu.service.BaseService"></property>
+        <!-- 配置服务端口-->
+        <property name="registryPort" value="7777"></property>
+    </bean>
+</beans>
